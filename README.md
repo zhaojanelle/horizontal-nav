@@ -19,6 +19,8 @@
 
 Visually match the images in the “screenshots” folder.
 
+*There are different width screenshots to demonstrate how the website changes when the browser is different sizes.*
+
 - [Final screenshots in the “screenshots” folder.](screenshots)
 
 ---
