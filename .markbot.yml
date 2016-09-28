@@ -1,41 +1,68 @@
-repo: "horizontal-nav"
-canvasCourse: "467502"
-canvasAssignment: "4178296"
+repo: 'horizontal-nav'
+canvasCourse: 'web-dev-1'
 
 naming: true
-commits: 2
+git:
+  numCommits: 2
+  allCommitted: true
+  allSynced: true
 
 html:
-  - path: "index.html"
+  - path: 'index.html'
+    valid: true
+    bestPractices: true
+    outline: true
+    has:
+      - 'link[href*="fonts.googleapis.com/css?family=Bevan"]'
+      - 'header'
+      - 'header h1'
+      - 'header nav'
+      - 'header nav ul'
+      - 'header nav ul li a'
+    search:
+      - 'Planets'
+      - 'Introduction'
+      - 'Terrestrial planets'
+      - 'Mars'
+      - 'Venus'
+
+css:
+  - path: 'css/main.css'
     valid: true
     bestPractices: true
     has:
-      - "header"
-      - "header h1"
-      - "header nav"
-      - "header nav ul"
-      - "header nav ul li a"
+      - ['html', 'box-sizing', 'border-box']
+      - ['*', 'box-sizing', 'inherit']
+      - ['body', 'margin', '0']
+      - ['h1', 'font-family', '"Bevan", serif']
     search:
-      - "Bevan"
-      - "Planets"
-      - "Introduction"
-      - "Terrestrial planets"
-      - "Mars"
-      - "Venus"
+      - 'margin'
+      - 'padding'
+      - 'background-color'
+      - 'list-style-type'
+      - 'display'
+      - 'inline-block'
+      - 'border'
+      - 'border-radius'
+      - '#79756f'
+      - '#595652'
+      - '#713837'
+      - '#f33'
+    search_not:
+      - ['font-size\s*:\s*.+px', 'Pixel units should not be used for `font-size` — use `rem` instead']
 
-css:
-  - path: "css/main.css"
-    valid: true
-    bestPractices: true
-      - ["html", "box-sizing", "border-box"]
-      - ["body", "margin", "0"]
-    search:
-      - "Bevan"
-      - "margin"
-      - "padding"
-      - "background-color"
-      - "list-style-type"
-      - "display"
-      - "inline-block"
-      - "border"
-      - "border-radius"
+screenshots:
+  - path: 'index.html'
+    sizes: [400, 650]
+
+functionality:
+  - path: 'index.html'
+    tests:
+      - |
+        let link = $('nav a');
+        let oldBg = css(link).backgroundColor;
+
+        hover('nav a', function () {
+          if (css(link).backgroundColor == oldBg) fail('The background colour of the navigation link doesn’t change when hovered')
+          pass();
+        });
