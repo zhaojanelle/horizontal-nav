@@ -16,7 +16,7 @@ html:
     bestPractices: true
     outline: true
     has:
-      - 'link[href*="fonts.googleapis.com/css?family=Bevan"]'
+      - ['link[href*="fonts.googleapis.com/css?family=Bevan"]', 'The Google Font `Bevan` is missing']
       - 'header'
       - 'header h1'
       - 'header nav'
